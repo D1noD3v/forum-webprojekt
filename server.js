@@ -18,6 +18,23 @@ app.use(
   })
 );
 
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.use(User.createStrategy());
+
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+app.get("/", (req, res) => {
+  res.sendFile(__dirname + "/views/index.html");
+});
+
+app.get("/", (req, res) => {
+  res.sendFile(__dirname + "/views/login.html");
+});
+
 app.listen(port, () => {
   console.log(`App running at localhost:${port}`);
 });

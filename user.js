@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const passportLocalMongoose = require("passport-local-mongoose");
 // connect to database
 mongoose.connect(
-  "mongodb+srv://dinob:<>@forumdb.oshly5z.mongodb.net/?retryWrites=true&w=majority",
+  "mongodb+srv://dinob:dino2004db24@forumdb.oshly5z.mongodb.net/?retryWrites=true&w=majority",
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
