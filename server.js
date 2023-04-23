@@ -31,8 +31,16 @@ app.get("/", (req, res) => {
   res.sendFile(__dirname + "/views/index.html");
 });
 
-app.get("/", (req, res) => {
+app.get("/login", (req, res) => {
   res.sendFile(__dirname + "/views/login.html");
+});
+
+app.get("/dashboard", connectEnsureLogin.ensureLoggedIn(), (req, res) => {
+  res.send(`Hello ${req.user.username}. Your session ID is ${req.sessionID} 
+   and your session expires in ${req.session.cookie.maxAge} 
+   milliseconds.<br><br>
+   <a href="/logout">Log Out</a><br><br>
+   <a href="/secret">Members Only</a>`);
 });
 
 app.listen(port, () => {
