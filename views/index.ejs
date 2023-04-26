@@ -15,11 +15,16 @@
       type="image/x-icon"
       href="bilder/amy-leigh-barnard-SByb8Ch9XcQ-unsplash.jpg"
     />
-    <title>Welcome to DataDino Formus!</title>
     <style>
       body {
-        background-image: url("bilder/mohammad-rahmani-oXlXu2qukGE-unsplash.jpg");
+        background-image: url("/public/bilder/mohammad-rahmani-oXlXu2qukGE-unsplash.jpg");
         background-size: cover;
+        padding: 5px;
+      }
+
+      a {
+        text-decoration: none;
+        color: white;
       }
 
       .dropdown-item {
@@ -48,9 +53,14 @@
         margin-left: 120px;
         margin-right: 120px;
         backdrop-filter: blur(6px);
-        text-decoration: none;
+      }
+
+      footer {
+        display: block;
+        background-color: black;
       }
     </style>
+    <title>Welcome to DataDino Formus!</title>
   </head>
   <body>
     <nav
@@ -59,7 +69,7 @@
     >
       <div class="container-fluid">
         <img
-          src="bilder/amy-leigh-barnard-SByb8Ch9XcQ-unsplash.jpg"
+          src="/public/bilder/amy-leigh-barnard-SByb8Ch9XcQ-unsplash.jpg"
           alt="dinosaurLogo"
           width="30"
           height="24"
@@ -158,7 +168,7 @@
     <br />
     <br />
     <div class="text-light" id="ownerCard">
-      <img src="bilder/sandDino.jpg" alt="" />
+      <img src="/public/bilder/sandDino.jpg" alt="" />
       <h1 class="bold">Our founder, Dino</h1>
       <p class="text-center fs-3">
         has worked hard on this project and aims for it to be free for everyone
@@ -167,12 +177,54 @@
     </div>
 
     <div class="text-light" id="topicCards">
-      <h1><a href="webbev.html">HTML5</a></h1>
-      <p>
-        Need to learn HTML or have some question about it? Come to the HTML
+      <h1>
+        <img src="/public/bilder/HTML5_logo_and_wordmark.svg.png" alt="" /><a
+          href="webbev.html"
+          >HTML5</a
+        >
+      </h1>
+      <p class="fs-4">
+        Need to learn HTML or have some questions about it? Come to the HTML
         Hangout!
       </p>
+      <br /><br />
+      <h1 class="text-end">
+        <a href=""
+          >Javascript
+          <img
+            src="/public/bilder/Unofficial_JavaScript_logo_2.svg.png"
+            alt="js"
+            width="300"
+            height="300"
+        /></a>
+      </h1>
+      <p class="text-end fs-4">
+        Want to meet like minded people in the Javascript Jungle?
+      </p>
+
+      <h1>
+        <img
+          src="/public/bilder/1452px-CSS3_logo_and_wordmark.svg.png"
+          alt=""
+          width="300"
+          height="400"
+        />CSS
+      </h1>
+      <p class="fs-4">
+        Need some styling tips or general advice? Head to the CSS City!
+      </p>
     </div>
+    <br /><br />
+
+    <div class="text-center text-light" id="farwellCard">
+      <p>
+        Whatever technical problem you need help with, we will try our best!
+      </p>
+    </div>
+
+    <footer class="text-light" id="footerText">
+      <h1 class="fs-3">&copy DataDino Forums. All rights reserved.</h1>
+    </footer>
   </body>
   <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
