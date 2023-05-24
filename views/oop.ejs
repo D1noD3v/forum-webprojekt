@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.6.4.js"
+      integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
+      crossorigin="anonymous"
+    ></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <title>Object-Oriented Programming</title>
+    <style>
+      #messageCard {
+        width: 600px;
+        height: 300px;
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 10px;
+      }
+
+      #jslogo {
+        margin-right: 10px;
+      }
+
+      #messagesSent {
+        width: 600px;
+        position: absolute;
+        top: 75%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 10px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <nav
+      class="navbar bg-dark-subtle navbar-expand-lg bg-body-tertiary"
+      data-bs-theme="dark"
+    >
+      <div class="container-fluid">
+        <img
+          src="/public/bilder/Unofficial_JavaScript_logo_2.svg.png"
+          alt="jslogo"
+          width="25"
+          height="25"
+          id="jslogo"
+        />
+        <a class="navbar-brand" href="/jspage"> Javascript Jungle</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="/jspage">Back to the Jungle</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle active"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Topics
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#" onclick="alert('This is getting worked at the moment, Please be patient!')">HTML</a></li>
+                <li><a class="dropdown-item" href="#" onclick="alert('This is getting worked at the moment, Please be patient!')">CSS</a></li>
+                <li><a class="dropdown-item active" href="#">Javascript</a></li>
+                <li><a class="dropdown-item" href="#" onclick="alert('This is getting worked at the moment, Please be patient!')">Memes</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="#">Other topics</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Socials
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#" onclick="alert('This is getting worked at the moment, Please be patient!')">Instagram</a></li>
+                <li><a class="dropdown-item" href="#" onclick="alert('This is getting worked at the moment, Please be patient!')">Twitter</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="#" onclick="alert('This is getting worked at the moment, Please be patient!')">Linktree</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="/login" class="nav-link btn btn-primary">Login</a>
+            </li>
+          </ul>
+          <button id="notifBtn" type="button" class="btn btn-primary">
+            Notifications
+            <span class="badge text-bg-secondary" id="notifcations">0</span>
+
+        </div>
+      </div>
+    </nav>
+    <div id="messageCard" class="card">
+      <div class="card border-primary">
+        <img class="card-img-top" src="holder.js/100px180/" alt="" />
+        <div class="card-body">
+          <h4 class="card-title fw-bold">What is OOP?</h4>
+          <p class="card-text">
+            My friends are telling my about OOP and how i should learn it, but
+            what is it?
+          </p>
+        </div>
+        <br />
+      </div>
+      <br />
+        <input type="text" id="name" placeholder="username" /><br />
+        <br />
+        <textarea type="text" id="message" placeholder="message" rows="3"></textarea>
+        <button class="position-absolute bottom-0 end-0 btn btn-success" id="messageSend">Submit</button>
+    </div>
+    <div id="messagesSent" class="card"><p class="card-title fw-bold">Comments</p></div>
+  </body>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"
+  ></script>
+  <script>
+    let socket = io();
+
+  
+    $(() => {
+      $("#messageSend").click(() => {
+        var message = {name: $("#name").val(), message: $("#message").val(),}
+        postMessages(message);
+      });
+      getMessages();
+    });
+
+    socket.on("message", addMessages);
+
+    function addMessages(message) {
+      $("#messagesSent").append(`<h4> ${message.name} </h4> <p> ${message.message}</p>`);
+    }
+
+    function getMessages() {
+      $.get("http://localhost:3000/meddelanden", (data) => {
+        data.forEach(addMessages);
+      })
+    }
+
+    function postMessages(message) { 
+      $.post("http://localhost:3000/meddelanden", message);
+     }
+  </script>
+</html>

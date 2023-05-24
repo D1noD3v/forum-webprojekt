@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <style>
+      body {
+        background-image: url("/public/bilder/mohammad-rahmani-oXlXu2qukGE-unsplash.jpg");
+        background-size: cover;
+      }
+      a {
+        text-decoration: none;
+        color: white;
+      }
+
+      .dropdown-item {
+        transition: 0.5s;
+      }
+
+      .dropdown-item:hover {
+        background-color: rgb(3, 36, 126);
+        color: white;
+      }
+
+      #jslogo {
+        margin-right: 5px;
+      }
+      #notifBtn {
+        margin-right: 100px;
+      }
+    </style>
+    <script
+      src="https://code.jquery.com/jquery-3.6.4.js"
+      integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
+      crossorigin="anonymous"
+    ></script>
+    <title>JS Jungle</title>
+  </head>
+  <body>
+    <nav
+      class="navbar bg-dark-subtle navbar-expand-lg bg-body-tertiary"
+      data-bs-theme="dark"
+    >
+      <div class="container-fluid">
+        <img
+          src="/public/bilder/Unofficial_JavaScript_logo_2.svg.png"
+          alt="jslogo"
+          width="25"
+          height="25"
+          id="jslogo"
+        />
+        <a class="navbar-brand" href="#"> Javascript Jungle</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="/">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Topics
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="#"
+                    onclick="alert('This is getting worked at the moment, Please be patient!')"
+                    >HTML</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="#"
+                    onclick="alert('This is getting worked at the moment, Please be patient!')"
+                    >CSS</a
+                  >
+                </li>
+                <li><a class="dropdown-item active" href="#">Javascript</a></li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="#"
+                    onclick="alert('This is getting worked at the moment, Please be patient!')"
+                    >Memes</a
+                  >
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="#">Other topics</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Socials
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Instagram</a></li>
+                <li><a class="dropdown-item" href="#">Twitter</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="#">Linktree</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="/login" class="nav-link btn btn-primary">Login</a>
+            </li>
+          </ul>
+          <button id="notifBtn" type="button" class="btn btn-primary">
+            Notifications
+            <span class="badge text-bg-secondary" id="notifcations">0</span>
+          </button>
+          <button id="postTopic" type="button" class="btn btn-success">
+            Post new topic
+          </button>
+        </div>
+      </div>
+    </nav>
+    <div class="text-light fs-1 fw-bold text-center">Top 3 Popular topics</div>
+
+    <ul class="list-group">
+      <li
+        class="list-group-item d-flex justify-content-between align-items-start"
+      >
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">
+            <a href="oop" class="text-primary">
+              OOP(Object-Oriented Programming)</a
+            >
+          </div>
+          Basics for OOP in JS.
+        </div>
+        <span class="badge bg-primary rounded-pill">POPULAR</span>
+      </li>
+
+      <li
+        class="list-group-item d-flex justify-content-between align-items-start"
+      >
+        <div class="ms-2 me-auto">
+          <div class="fw-bold"><a href="" class="text-primary">Basics</a></div>
+          Learn the most popular Web Programming languages!
+        </div>
+        <span class="badge bg-primary rounded-pill">POPULAR</span>
+      </li>
+      <li
+        class="list-group-item d-flex justify-content-between align-items-start"
+      >
+        <div class="ms-2 me-auto">
+          <div class="fw-bold"><a href="" class="text-primary"> Regex</a></div>
+          We all know the troubles of regex, so we simplifed it!
+        </div>
+        <span class="badge bg-primary rounded-pill">POPULAR</span>
+      </li>
+    </ul>
+    <div class="text-light fs-1 fw-bold text-center">New topics</div>
+    <div id="newTopics"></div>
+  </body>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"
+  ></script>
+  <script>
+    $(document).ready(function () {
+      $("#postTopic").click(function () {
+        let topics = ["Typescript", "Cool stuff", "Memes", "Javascript sucks"];
+        let topicText = [
+          "Funny stuff",
+          "Javascript sucks, use typescript instead.",
+          "This site is not sponsored by any foundation or company.",
+          "Idk man this site is weird.",
+        ];
+        var randomTopic = Math.floor(Math.random() * topics.length);
+        $("#newTopics").append(
+          `<ul class="list-group"><li class="list-group-item d-flex justify-content-between align-items-start"> <div class="ms-2 me-auto"> <div class="fw-bold"><a href="" class="text-primary"> ${topics[randomTopic]}</a></div>${topicText[randomTopic]}</div><span class="badge bg-primary rounded-pill">NEW</span></li></ul>`
+        );
+      });
+    });
+  </script>
+</html>

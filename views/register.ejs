@@ -39,17 +39,23 @@
           class="card-title"
           class="position-absolute top-50 start-50 translate-middle"
         >
-          Login
+          Register
         </h5>
         <form action="/register" class="" method="post">
-          <input type="text" name="email" placeholder="Email" />
-          <input type="text" name="username" placeholder="Username" />
-          <input type="password" name="password" placeholder="Password" />
+          <input type="email" name="email" placeholder="Email" required />
+          <input type="text" name="username" placeholder="Username" required />
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            required
+            autocomplete="off"
+          />
           <button class="btn btn-primary">Sign up</button>
         </form>
         <br />
         <br />
-        <a href="/login">Alredy have an account?</a>
+        <a href="/login">Already have an account?</a>
       </div>
     </div>
   </body>
