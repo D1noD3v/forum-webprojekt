@@ -1,6 +1,6 @@
 ﻿# forumWebprojekt
 
 
-Webbserverprogrammerings projekt gjord av Dino Brankovic 
+Webbserverprogrammerings projekt gjord av Dino 
 
-Vid NTI Gymnasiet Uppsala
+
